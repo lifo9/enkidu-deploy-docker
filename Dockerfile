@@ -10,7 +10,8 @@ RUN apk --update --no-cache add \
   py3-pip \
   python3 \
   sshpass \
-  terraform
+  terraform \
+  curl
 
 COPY requirements.txt .
 
