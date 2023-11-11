@@ -9,7 +9,8 @@ RUN apk --update --no-cache add \
   openssh-client \
   py3-pip \
   python3 \
-  sshpass
+  sshpass \
+  terraform
 
 COPY requirements.txt .
 
@@ -25,6 +26,8 @@ RUN apk --update add --virtual .build-deps \
   && pip install -r requirements.txt \
   # install Bitwarden client
   && npm install -g @bitwarden/cli \
+  # install flyctl
+  && curl -L https://fly.io/install.sh | sh \
   # cleanup
   && apk del .build-deps \
   && rm -rf /var/cache/apk/*
