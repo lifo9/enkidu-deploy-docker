@@ -2,7 +2,8 @@ FROM alpine:3.19.0
 
 ENV PATH="/home/deploy/.fly/bin:$PATH"
 
-RUN apk --update --no-cache add \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.18/community" >> /etc/apk/repositories && \
+  apk --update --no-cache add \
   # install running dependencies
   bash \
   git \
